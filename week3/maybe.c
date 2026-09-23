@@ -2,7 +2,7 @@
 #include <math.h>
 
 int main(){
-    float x, a, z, y;
+    float x, a, z, y1, y2;
     printf("Введите значение аргумента: ");
     scanf("%f", &x);
 
@@ -10,13 +10,23 @@ int main(){
     z = fabs(x-2);
 
     if (x < -1)
-        y = a;
-    else if (x >= -1 && x <= 1)
-        y = 1;
+        y1 = a;
+    else if (x > 1)
+        y1 = z;
     else
-        y = z;
+        y1 = 1;
 
-    printf("y=%f\n", y);
+    printf("y1=%f\n", y1);
+
+
+    if (x < -1)
+        y2 = a;
+    if (x >= -1 && x <= 1)
+        y2 = 1;
+    if (x > 1)
+        y2 = z;
+    
+    printf("y2=%f\n", y2);
     /*float x, a, z, y;
     printf("Введите значение аргумента: ");
     scanf("%f", &x);
