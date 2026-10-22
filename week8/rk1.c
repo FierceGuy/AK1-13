@@ -28,7 +28,7 @@ int main() {
 	for(int i = 0; i<now_rows; i++) {
 		for(int j =0; j < MAX_COLS; j++) {
 			if (A[i][j] == DEL_VAL) {
-				for(int k=i; k < now_rows - 1; k++) {
+				for(int k=i; k < now_rows-1; k++) {
 					for(int j = 0; j < MAX_COLS; j++) {
 						A[k][j]=A[k+1][j];}
 				}
