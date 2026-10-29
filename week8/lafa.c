@@ -11,13 +11,13 @@ int main(){
     scanf("%d", &n);
     if (n > 25){
         printf("Задание не такое");
-        return 0;
+        return 1;
     }
 	for(int i=0; i<n; i++) {
 		scanf("%d", &D[i]);
 	}	 
-    for(int i=0; i<n; i++)
-        printf("%d ", D[i]);
+	for(int i=0; i<n; i++)
+        	printf("%d ", D[i]);
     putchar('\n');
 
     int Mx = 0, v = 0;

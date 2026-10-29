@@ -1,0 +1,1 @@
+string.exe: string.c; cc -o string.exe string.c
