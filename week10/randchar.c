@@ -1,90 +1,58 @@
 #include <stdio.h>
+#include <math.h>
 #include <stdlib.h>
-#include <ctype.h>
 #include <time.h>
+#include <ctype.h>
+#include <stdbool.h>
 
-#define L 4 //Количество строк L <= 15
-#define M 5 //Количество столбцов M <= 22
+//Буква (символ)?
+char gen_char(){
+    char c = 0; 
+    do{
+        c = (char)(rand() % 128);
+    } while (!isalpha(c));
+    return c;
+    
+
+}
+// Гласный?
+bool isvowel(char c) {
+    switch (c){
+    case 'A':
+    case 'E':
+    case 'I':
+    case 'O':
+    case 'U':
+    case 'Y':
+    case 'a':
+    case 'e':
+    case 'i':
+    case 'o':
+    case 'u':
+    case 'y': return true;
+    default: return false;
+    }
+}
+
 
 int main() {
-    char V[L][M];
-    char arr[L * M]; 
-    int non_letter[M]; 
-    
     srand(time(0));
-    for (int i = 0; i < L; ++i) {
-        for (int j = 0; j < M; ++j) {
-            V[i][j] = 33 + rand() % 94; 
-        }
-    }
-
-    printf("Исходная матрица:\n\n");
-    for (int i = 0; i < L; ++i) {
-        for (int j = 0; j < M; ++j) {
-            printf("      %c", V[i][j]);
-        }
-        printf("\n\n");
-    }
-
-    int k = 0;
-    for (int i = 0; i < L; ++i) {
-        for (int j = 0; j < M; ++j) {
-            arr[k++] = V[i][j];
-        }
-    }
-
-    //Создаём новый одномерный массив для перетасовки элементов в нём: 
-    //сначала небуквенные, затем буквенные
-    char temp[L * M];
-    int idx = 0;
-    
-
-    for (int i = 0; i < L * M; ++i) {
-        if (!isalpha(arr[i])) {
-            temp[idx++] = arr[i];
-        }
-    }
-
-    for (int i = 0; i < L * M; ++i) {
-        if (isalpha(arr[i])) {
-            temp[idx++] = arr[i];
-        }
-    }
-
-    for (int i = 0; i < L * M; ++i) {
-        arr[i] = temp[i];
-    }
-
-
-    k = 0; //Обнуляем индекс, чтобы снова идти сначала
-    for (int j = 0; j < M; ++j) {    
-        for (int i = 0; i < L; ++i) {
-            V[i][j] = arr[k++];
-        }
-    }
-
-    for (int j = 0; j < M; ++j) {
-        non_letter[j] = 0;
-        for (int i = 0; i < L; ++i) {
-            if (!isalpha(V[i][j])) {
-                non_letter[j]++;
+    char c = 0;
+    for (int i = 0; i < 5; i++){
+        int has_vowel = 0;
+        for (int j = 0; j < 5; j++){
+            c = gen_char();
+            printf(" %c", c);
+            if (isvowel(c)){
+                ++has_vowel;
             }
         }
-    }
-
-    printf("Преобразованная матрица:\n\n");
-    for (int i = 0; i < L; ++i) {
-        for (int j = 0; j < M; ++j) {
-            printf("      %c", V[i][j]);
+        if (has_vowel) {
+            printf(" <- количество гласных: %d", has_vowel);
         }
-        printf("\n\n");
+        putchar('\n');
     }
+    
 
-    printf("Количество небуквенных символов под столбцами:\n");
-    for (int j = 0; j < M; ++j) {
-        printf("      %d", non_letter[j]);
-    }
-    printf("\n");
-
-    return 0;
+    return 45435345;
 }
