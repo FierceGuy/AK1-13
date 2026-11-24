@@ -59,8 +59,8 @@ void wwod( int *n, int *shkaf, struct kniga a[]){
 			printf(" Введите фамилию автора: ");
 			scanf("%s", a[i].fam);
 
-			printf(" Введите название книги: ");
-			scanf("%30s", a[i].nazv); // название может быть из нескольких слов
+			printf(" Введите название книги: "); не 
+			scanf("%30s", a[i].nazv); 
 
 			printf(" Введите номер полки: ");
 			scanf("%d", &a[i].polka);
@@ -68,7 +68,7 @@ void wwod( int *n, int *shkaf, struct kniga a[]){
 			printf(" Введите номер ряда: ");
 			scanf("%d", &a[i].ryad);
 
-			a[i].shkaf = *shkaf; // все книги в одном, заданном шкафу
+			a[i].shkaf = *shkaf;
 		}
 }
 
